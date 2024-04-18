@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Diagnostics;
 using System.IO;
 using System.Net;
@@ -160,10 +160,10 @@ namespace WindowsGSM.Plugins
                 return null;
             }
 
-            // Install Java if not installed
+            // Install Java 21 if not installed
             if (!JavaHelper.IsJREInstalled())
             {
-                var taskResult = await JavaHelper.DownloadJREToServer(_serverData.ServerID);
+                var taskResult = await JavaHelper.DownloadJREToServer(_serverData.ServerID, "21");
                 if (!taskResult.installed)
                 {
                     Error = taskResult.error;
